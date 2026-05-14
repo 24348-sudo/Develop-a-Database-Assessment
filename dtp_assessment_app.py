@@ -84,7 +84,22 @@ def print_cars_and_race_ratio():
     # printing car name &  races competed in + won & maker
     db = sqlite3.connect('best_racecars.db')
     cursor = db.cursor()
-    sql = 'SELECT * FROM cars;'
+    # option of whether it should be ordered or not and if so how
+    user_input_order = input("""Ordered by:
+        1. Car name
+        2. Races competed in
+        3. Races won
+        4. Disregard
+                """)
+    if user_input_order == '1':
+        sql = 'SELECT * FROM cars ORDER BY car_name;'
+    elif user_input_order == '2':
+        sql = 'SELECT * FROM cars ORDER BY races DESC;'
+    elif user_input_order == '3':
+        sql = 'SELECT * FROM cars ORDER BY wins DESC;'
+    elif user_input_order == '4':
+        sql = 'SELECT * FROM cars;'
+    # printing the stuff
     cursor.execute(sql)
     results = cursor.fetchall()
     print("""   Cars                               Races  Wins""")
