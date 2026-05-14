@@ -4,26 +4,28 @@ import sqlite3
 
 
 def print_all_cars():
-    # printing all car stats
+    # can print all car stats
     db = sqlite3.connect('best_racecars.db')
     cursor = db.cursor()
-    user_input_boolen = input("""Ordered by:
+    # option of whether it should be ordered or not and if so how
+    user_input_order = input("""Ordered by:
         1. Car name
         2. Horsepower
         3. Races competed in
         4. Races won
         5. Disregard
-                              """)
-    if user_input_boolen == '1':
+                """)
+    if user_input_order == '1':
         sql = 'SELECT * FROM cars ORDER BY car_name;'
-    elif user_input_boolen == '2':
+    elif user_input_order == '2':
         sql = 'SELECT * FROM cars ORDER BY horsepower DESC;'
-    elif user_input_boolen == '3':
+    elif user_input_order == '3':
         sql = 'SELECT * FROM cars ORDER BY races DESC;'
-    elif user_input_boolen == '4':
+    elif user_input_order == '4':
         sql = 'SELECT * FROM cars ORDER BY wins DESC;'
-    elif user_input_boolen == '5':
+    elif user_input_order == '5':
         sql = 'SELECT * FROM cars;'
+    # printing the stuff
     cursor.execute(sql)
     results = cursor.fetchall()
     print("""   Cars                                 HP  Races  Wins""")
@@ -36,7 +38,16 @@ def print_car_names():
     # printing car names
     db = sqlite3.connect('best_racecars.db')
     cursor = db.cursor()
-    sql = 'SELECT * FROM cars;'
+    # option of whether it should be ordered or not and if so how
+    # option of whether it should be ordered or not and if so how
+    user_input_order = input("""Ordered by:
+        1. YES
+        2. NO
+                """)
+    if user_input_order == '1':
+        sql = 'SELECT * FROM cars ORDER BY car_name;'
+    elif user_input_order == '2':
+        sql = 'SELECT * FROM cars;'
     cursor.execute(sql)
     results = cursor.fetchall()
     print("""    Cars""")
