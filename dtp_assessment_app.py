@@ -60,7 +60,18 @@ def print_cars_and_hp():
     # printing car names and horsepower
     db = sqlite3.connect('best_racecars.db')
     cursor = db.cursor()
-    sql = 'SELECT * FROM cars;'
+    # option of whether it should be ordered or not and if so how
+    user_input_order = input("""Ordered by:
+        1. Car name
+        2. Horsepower
+        3. Disregard
+                """)
+    if user_input_order == '1':
+        sql = 'SELECT * FROM cars ORDER BY car_name;'
+    elif user_input_order == '2':
+        sql = 'SELECT * FROM cars ORDER BY horsepower DESC;'
+    elif user_input_order == '3':
+        sql = 'SELECT * FROM cars;'
     cursor.execute(sql)
     results = cursor.fetchall()
     print("""   Cars                                 HP""")
