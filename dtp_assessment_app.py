@@ -4,10 +4,26 @@ import sqlite3
 
 
 def print_all_cars():
-    # printing car name, hp, races competed in + won & maker
+    # printing all car stats
     db = sqlite3.connect('best_racecars.db')
     cursor = db.cursor()
-    sql = 'SELECT * FROM cars;'
+    user_input_boolen = input("""Ordered by:
+        1. Car name
+        2. Horsepower
+        3. Races competed in
+        4. Races won
+        5. Disregard
+                              """)
+    if user_input_boolen == '1':
+        sql = 'SELECT * FROM cars ORDER BY car_name;'
+    elif user_input_boolen == '2':
+        sql = 'SELECT * FROM cars ORDER BY horsepower DESC;'
+    elif user_input_boolen == '3':
+        sql = 'SELECT * FROM cars ORDER BY races DESC;'
+    elif user_input_boolen == '4':
+        sql = 'SELECT * FROM cars ORDER BY wins DESC;'
+    elif user_input_boolen == '5':
+        sql = 'SELECT * FROM cars;'
     cursor.execute(sql)
     results = cursor.fetchall()
     print("""   Cars                                 HP  Races  Wins""")
@@ -59,9 +75,9 @@ while True:
     user_input = input("""
 What would you like to do?
     1. Print all racecar stats
-    2. Print car names
-    3. Print car names and horsepower
-    4. Print car names and races and wins ratio
+    2. Print only car names
+    3. Print only car names and horsepower
+    4. Print only car names and races and wins ratio
     5. Exit
 
     """)
@@ -74,6 +90,8 @@ What would you like to do?
     elif user_input == '4':
         print_cars_and_race_ratio()
     elif user_input == '5':
+        print("""
+              Goodbye""")
         break
     else:
         print()
