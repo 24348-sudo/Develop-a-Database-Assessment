@@ -25,6 +25,9 @@ def print_all_cars():
         sql = 'SELECT * FROM cars ORDER BY wins DESC;'
     elif user_input_order == '5':
         sql = 'SELECT * FROM cars;'
+    else:
+        print("That is not a valid option. Please try again")
+        return
     # printing the stuff
     cursor.execute(sql)
     results = cursor.fetchall()
@@ -48,6 +51,9 @@ def print_car_names():
         sql = 'SELECT * FROM cars ORDER BY car_name;'
     elif user_input_order == '2':
         sql = 'SELECT * FROM cars;'
+    else:
+        print("That is not a valid option. Please try again")
+        return
     cursor.execute(sql)
     results = cursor.fetchall()
     print("""    Cars""")
@@ -72,6 +78,9 @@ def print_cars_and_hp():
         sql = 'SELECT * FROM cars ORDER BY horsepower DESC;'
     elif user_input_order == '3':
         sql = 'SELECT * FROM cars;'
+    else:
+        print("That is not a valid option. Please try again")
+        return
     cursor.execute(sql)
     results = cursor.fetchall()
     print("""   Cars                                 HP""")
@@ -80,7 +89,7 @@ def print_cars_and_hp():
     db.close()
 
 
-def print_cars_and_race_ratio():
+def print_cars_and_win_race_ratio():
     # printing car name &  races competed in + won & maker
     db = sqlite3.connect('best_racecars.db')
     cursor = db.cursor()
@@ -99,6 +108,9 @@ def print_cars_and_race_ratio():
         sql = 'SELECT * FROM cars ORDER BY wins DESC;'
     elif user_input_order == '4':
         sql = 'SELECT * FROM cars;'
+    else:
+        print("That is not a valid option. Please try again")
+        return
     # printing the stuff
     cursor.execute(sql)
     results = cursor.fetchall()
@@ -125,10 +137,10 @@ What would you like to do?
     elif user_input == '3':
         print_cars_and_hp()
     elif user_input == '4':
-        print_cars_and_race_ratio()
+        print_cars_and_win_race_ratio()
     elif user_input == '5':
         print("""
               Goodbye""")
         break
     else:
-        print()
+        print("That is not a valid option. Please try again.")
