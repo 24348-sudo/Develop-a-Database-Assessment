@@ -1,3 +1,4 @@
+
 import sqlite3
 
 # functions
@@ -7,7 +8,7 @@ def print_all_cars():
     # can print all car stats
     db = sqlite3.connect('best_racecars.db')
     cursor = db.cursor()
-    # option of whether it should be ordered or not and if so how
+    # option of whether it should be ordered or not, and if so how
     user_input_order = input("""Ordered by:
         1. Car name
         2. Horsepower
@@ -26,9 +27,10 @@ def print_all_cars():
     elif user_input_order == '5':
         sql = 'SELECT * FROM cars;'
     else:
+        #catches invalid options and returns the user back to the main menu
         print("That is not a valid option. Please try again")
         return
-    # printing the stuff
+    # printing the results
     cursor.execute(sql)
     results = cursor.fetchall()
     print("""   Cars                                 HP  Races  Wins""")
@@ -42,7 +44,6 @@ def print_car_names():
     db = sqlite3.connect('best_racecars.db')
     cursor = db.cursor()
     # option of whether it should be ordered or not and if so how
-    # option of whether it should be ordered or not and if so how
     user_input_order = input("""Ordered by:
         1. YES
         2. NO
@@ -52,8 +53,10 @@ def print_car_names():
     elif user_input_order == '2':
         sql = 'SELECT * FROM cars;'
     else:
+        #catches invalid options and returns the user back to the main menu
         print("That is not a valid option. Please try again")
         return
+    # printing the results
     cursor.execute(sql)
     results = cursor.fetchall()
     print("""    Cars""")
@@ -79,8 +82,10 @@ def print_cars_and_hp():
     elif user_input_order == '3':
         sql = 'SELECT * FROM cars;'
     else:
+        #catches invalid options and returns the user back to the main menu
         print("That is not a valid option. Please try again")
         return
+    # printing the results
     cursor.execute(sql)
     results = cursor.fetchall()
     print("""   Cars                                 HP""")
@@ -90,7 +95,7 @@ def print_cars_and_hp():
 
 
 def print_cars_and_win_race_ratio():
-    # printing car name &  races competed in + won & maker
+    # printing car name & the ratio of races to races won
     db = sqlite3.connect('best_racecars.db')
     cursor = db.cursor()
     # option of whether it should be ordered or not and if so how
@@ -109,6 +114,7 @@ def print_cars_and_win_race_ratio():
     elif user_input_order == '4':
         sql = 'SELECT * FROM cars;'
     else:
+        #catches invalid options and returns the user back to the main menu
         print("That is not a valid option. Please try again")
         return
     # printing the stuff
@@ -120,6 +126,7 @@ def print_cars_and_win_race_ratio():
     db.close()
 
 
+# Main body of code + user interface
 while True:
     user_input = input("""
 What would you like to do?
@@ -140,7 +147,10 @@ What would you like to do?
         print_cars_and_win_race_ratio()
     elif user_input == '5':
         print("""
-              Goodbye""")
+              Goodbye
+
+           （￣︶￣）↗""")
         break
+    # Catches invalid inputs and brings user back to start of 'while true' loop
     else:
         print("That is not a valid option. Please try again.")
