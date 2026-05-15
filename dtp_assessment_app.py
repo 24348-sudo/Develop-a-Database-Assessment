@@ -27,7 +27,7 @@ def print_all_cars():
     elif user_input_order == '5':
         sql = 'SELECT * FROM cars;'
     else:
-        #catches invalid options and returns the user back to the main menu
+        # catches invalid options and returns the user back to the main menu
         print("That is not a valid option. Please try again")
         return
     # printing the results
@@ -53,7 +53,7 @@ def print_car_names():
     elif user_input_order == '2':
         sql = 'SELECT * FROM cars;'
     else:
-        #catches invalid options and returns the user back to the main menu
+        # catches invalid options and returns the user back to the main menu
         print("That is not a valid option. Please try again")
         return
     # printing the results
@@ -82,7 +82,7 @@ def print_cars_and_hp():
     elif user_input_order == '3':
         sql = 'SELECT * FROM cars;'
     else:
-        #catches invalid options and returns the user back to the main menu
+        # catches invalid options and returns the user back to the main menu
         print("That is not a valid option. Please try again")
         return
     # printing the results
@@ -114,7 +114,7 @@ def print_cars_and_win_race_ratio():
     elif user_input_order == '4':
         sql = 'SELECT * FROM cars;'
     else:
-        #catches invalid options and returns the user back to the main menu
+        # catches invalid options and returns the user back to the main menu
         print("That is not a valid option. Please try again")
         return
     # printing the stuff
