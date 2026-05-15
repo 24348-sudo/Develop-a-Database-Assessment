@@ -1,6 +1,10 @@
 
 import sqlite3
 
+# variable declarations
+invalid_input_response = "That is not a valid option. Please try again"
+
+
 # functions
 
 
@@ -28,7 +32,7 @@ def print_all_cars():
         sql = 'SELECT * FROM cars;'
     else:
         # catches invalid options and returns the user back to the main menu
-        print("That is not a valid option. Please try again")
+        print(invalid_input_response)
         return
     # printing the results
     cursor.execute(sql)
@@ -54,7 +58,7 @@ def print_car_names():
         sql = 'SELECT * FROM cars;'
     else:
         # catches invalid options and returns the user back to the main menu
-        print("That is not a valid option. Please try again")
+        print(invalid_input_response)
         return
     # printing the results
     cursor.execute(sql)
@@ -83,7 +87,7 @@ def print_cars_and_hp():
         sql = 'SELECT * FROM cars;'
     else:
         # catches invalid options and returns the user back to the main menu
-        print("That is not a valid option. Please try again")
+        print(invalid_input_response)
         return
     # printing the results
     cursor.execute(sql)
@@ -115,7 +119,7 @@ def print_cars_and_win_race_ratio():
         sql = 'SELECT * FROM cars;'
     else:
         # catches invalid options and returns the user back to the main menu
-        print("That is not a valid option. Please try again")
+        print(invalid_input_response)
         return
     # printing the stuff
     cursor.execute(sql)
@@ -153,4 +157,4 @@ What would you like to do?
         break
     # Catches invalid inputs and brings user back to start of 'while true' loop
     else:
-        print("That is not a valid option. Please try again.")
+        print(invalid_input_response)
