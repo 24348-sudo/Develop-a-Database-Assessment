@@ -2,7 +2,7 @@
 import sqlite3
 
 # variable declarations
-invalid_input_response = "That is not a valid option. Please try again"
+invalid_input_response = "That is not a valid option. Try again."
 
 
 # functions
