@@ -126,7 +126,7 @@ def print_cars_and_win_race_ratio():
     db.close()
 
 
-# Main body of code + user interface
+# Main body of code + user interface AKA main menu
 while True:
     user_input = input("""
 What would you like to do?
@@ -149,7 +149,7 @@ What would you like to do?
         print("""
               Goodbye
 
-           （￣︶￣）↗""")
+            （￣︶￣）↗""")
         break
     # Catches invalid inputs and brings user back to start of 'while true' loop
     else:
