@@ -39,7 +39,7 @@ def print_all_cars():
     results = cursor.fetchall()
     print("""Car ID   Car name                             HP  Races  Wins""")
     for car in results:
-        print(f"{car[0]:<3}{car[1]:<38} {car[2]:<6} {car[3]:<4} {car[4]:<4}")
+        print(f"{car[0]:<8}{car[1]:<38} {car[2]:<6} {car[3]:<4} {car[4]:<4}")
     db.close()
 
 
@@ -65,7 +65,7 @@ def print_car_names():
     results = cursor.fetchall()
     print("Car ID   Car name")
     for car in results:
-        print(f"{car[0]:<3} {car[1]}")
+        print(f"{car[0]:<8} {car[1]}")
     db.close()
 
 
@@ -94,7 +94,7 @@ def print_cars_and_hp():
     results = cursor.fetchall()
     print("""Car ID   Car name                             HP""")
     for car in results:
-        print(f"{car[0]:<3} {car[1]:<38} {car[2]:<6}")
+        print(f"{car[0]:<8} {car[1]:<38} {car[2]:<6}")
     db.close()
 
 
@@ -126,7 +126,7 @@ def print_cars_and_win_race_ratio():
     results = cursor.fetchall()
     print("""Car ID   Car name                             Races  Wins""")
     for car in results:
-        print(f"{car[0]:<3} {car[1]:<38} {car[3]:<3}: {car[4]:<4}")
+        print(f"{car[0]:<8} {car[1]:<38} {car[3]:<3}: {car[4]:<4}")
     db.close()
 
 
